@@ -11,8 +11,18 @@
 <div align="center">
     <?php
     $id = $_GET['id'];
-
-    echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+    $e = " คี่";
+    $o = " คู่";
+    if (($id % 2 ) == 0)
+    {
+        echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+        echo "กระทู้หมายเลข $e" . "<BR>";
+    }
+    else
+    {
+        echo "ต้องการดูกระทู้หมายเลข $id" . "<BR>";
+        echo "กระทู้หมายเลข $o" . "<BR>";
+    }
     ?>
     <table align="center" border="2px">
         <tr>
@@ -26,6 +36,6 @@
             <td style="text-align : center;"><input type="submit"  value="ส่งข้อความ" ></td>
 </table>
 <br>
-<a href="index.html">กลับไปหน้าหลัก</a>
+<a href="index.php">กลับไปหน้าหลัก</a>
 </body>
 </html>

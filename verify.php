@@ -8,12 +8,25 @@
 <body>
     <h1 style="text-align: center;">Webboard Tanapon</h1>
     <hr>
-    <center>เข้าสู่ระบบด้วย</center>
+    <div style = "text-align: center";>
     <?php
+
     $l = $_POST['login'];
     $p = $_POST['pwd'];
-    echo "Login = $l " . "<br>";
-    echo "Password = $p ";
+    if($l == "admin" && $p == "ad1234")
+    {
+        echo "ยินดีต้อนรับ คุณ ADMIN";
+    }
+    elseif($l == "member" && $p == "mem1234")
+    {
+        echo "ยินดีต้อนรับ คุณ MEMBER";
+    }
+    else
+    {
+        echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
+    }
     ?>
+    </div>
+    <center><a href="login.html">กลับไปยังหน้าหลัก</a></center>
 </body>
 </html>
