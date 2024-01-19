@@ -1,9 +1,17 @@
+<?php
+session_start();
+if(isset($_SESSION['id']))
+{
+    header("location:index.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>register</title>
 </head>
 <body>
     <h1 style="text-align: center;">Webboard Tanapon</h1>
@@ -27,6 +35,6 @@
         <tr><td colspan="2" align="center"> <input type="submit" value="สมัครสมาชิก"</td><td></td></tr>
     </table>
     <br>
-    <center><a href="index.html">กลับไปหน้าหลัก</a></center>
+    <center><a href="index.php">กลับไปหน้าหลัก</a></center>
 </body>
 </html>
