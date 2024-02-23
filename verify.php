@@ -14,7 +14,6 @@ if(isset($_SESSION['id']))
     <title>verify</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Webboard Tanapon</h1>
     <div style = "text-align: center";>
 <?php
     $l = $_POST['login'];
@@ -24,18 +23,24 @@ if(isset($_SESSION['id']))
         $_SESSION['username'] = "admin";
         $_SESSION['role'] = "a";
         $_SESSION['id'] = session_id();
-        echo "ยินดีต้อนรับ คุณ ADMIN";
+        header("location:index.php");
+        //echo "ยินดีต้อนรับ คุณ ADMIN";
     }
     elseif($l == "member" && $p == "mem1234")
     {
         $_SESSION['username'] = "member";
         $_SESSION['role'] = "m";
         $_SESSION['id'] = session_id();
-        echo "ยินดีต้อนรับ คุณ MEMBER";
+        header("location:index.php");
+        die();
+        //echo "ยินดีต้อนรับ คุณ MEMBER";
     }
     else
     {
-        echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
+        $_SESSION['error']='error';
+        header("location:login.php");
+        die();
+        //echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
     }
     ?>
     </div>
