@@ -42,44 +42,46 @@
       </ul>
   </div>
 </nav>
-
-    <form>
-        หมวดหมู่ <select name "Category">
-        <option value="all">--ทั้งหมด--</option>
-        <option value="geraral">เรื่องทั่วไป</option>
-        <option value="study">เรื่องเรียน</option>
-    </select>
+<div class="mt-3 d-flex justify-content-between">
+    <div>
+    <label>หมวดหมู่</label>
+    <span class="dropdown">
+  <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    -- ทั้งหมด --
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">ทั้งหมด</a></li>
+    <li><a class="dropdown-item" href="#">เรื่องเรียน</a></li>
+    <li><a class="dropdown-item" href="#">เรื่องทั่วไป</a></li>
+  </ul>
+</span>
+    </div>
     <?php
-    if (!isset($_SESSION['id']))
-    {
-        echo "<a href=login.php style='float:right;'>เข้าสู่ระบบ</a>";
-    }
-    else
-    {
-        echo "<div style='float:right;'>
-                ผู้ใช้งานระบบ : $_SESSION[username]
-                <a href=logout.php>ออกจากระบบ</a>
-        </div>";
-        echo "<br><a href=newpost.php>สร้างกระทู้ใหม่</a>";
-    }
-    ?>
-</form>
-<ul>
+if(isset($_SESSION['id'])) {
+?>
+<div><a href="newpost.php" class="btn btn-success btn-sm">
+    <i class='bi bi-plus'></i>สร้างกระทู้ใหม่</a></div>
+<?php } ?>
+
+</div>
+    
+
+
+    <table class="table table-striped mt-4">
     <?php
     for($i = 1; $i <= 10; $i++)
     {
-        echo "<li><a href=post.php?id=$i>กระทู้ที่ $i </a>";
+        echo "<tr><td class ='d-flex justify-content-between'><a href=post.php?id=$i style = text-decoration:none>กระทู้ที่ $i </a>";
         if(isset($_SESSION['id']) && $_SESSION['role']=='a')
             {
-                echo "&nbsp;&nbsp;&nbsp;<a href=delete.php?id=$i>ลบ</a>";
+                echo "&nbsp;&nbsp;&nbsp;<a href=delete.php?id=$i class='btn btn-danger btn-sm me-5'><i class='bi bi-trash3'></i></a>";
             }
 
-        echo "</li>";
+        echo "</td></tr>";
     }
-    
-
     ?>
-</ul>
+    </table>
+
 </div>
 </body>
 </html>
