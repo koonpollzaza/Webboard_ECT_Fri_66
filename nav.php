@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #FFFACD;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
+            <a class="navbar-brand" href="index.php"><i class="bi bi-house-door-fill"></i> Home</a>
         <ul class="navbar-nav">
             <?php if(!isset($_SESSION['id'])) { ?>
             <li class="nav-item">
