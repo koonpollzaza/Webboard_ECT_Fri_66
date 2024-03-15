@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2024 at 03:59 AM
+-- Generation Time: Mar 15, 2024 at 05:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -60,10 +60,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUES
-(1, 'แฮรี่พอตเตอร์', '2024-03-08 10:52:18', 2, 3),
-(2, 'แฮรี่พอตเตอร์', '2024-03-08 10:52:43', 2, 3),
-(3, 'สวัสดีปีใหม่', '2024-03-08 10:53:31', 2, 3),
-(4, 'ไม่ทันเลย', '2024-03-15 09:56:21', 2, 3);
+(11, 'ฮาหน่อยอร่อยแน่', '2024-03-15 11:54:33', 3, 8),
+(12, 'อร่อยไหมไม่รู้ ก็ลองชิมดู', '2024-03-15 11:54:55', 3, 7);
 
 -- --------------------------------------------------------
 
@@ -85,9 +83,8 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
-(1, 'อะไร', 'งงอะ', '2024-03-01 11:33:54', 1, 2),
-(2, 'บาส', 'เปิดศอก', '2024-03-01 11:51:29', 2, 2),
-(3, 'การเรียน PHP', 'การเชื่อมต่อ PHP', '2024-03-01 12:03:17', 1, 3);
+(7, 'แมนยู', 'ไก่กา', '2024-03-15 11:06:43', 1, 2),
+(8, 'แมนซิ', 'ลิเวอรพลุน', '2024-03-15 11:06:53', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -157,13 +154,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
