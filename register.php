@@ -17,6 +17,18 @@ if(isset($_SESSION['id']))
     <title>register</title>
 </head>
 <body>
+    <script>
+        function OnBlurPwd()
+        {
+            let pwd=document.getElementById("pwd");
+            let pwd2=document.getElementById("pwd2");
+            if(pwd.value!==pwd2.value)
+            {
+                alert("รหัสผ่านทั้งสองช่องไม่ตรงกัน");
+                pwd2.value="";
+            }
+        }
+    </script>
     <div class="container">
         <h1 style="text-align:center;" class="mt-3">Web Tanapon</h1>
         <?php
@@ -48,13 +60,18 @@ if(isset($_SESSION['id']))
                         <div class="row">
                             <label class="col-lg-3 col-form-label">ชื่อบัญชี : </label>
                             <div class="col-lg-9">
-                                <input type="text" name="login" class="form-control" required>
+                                <input id="login" type="text" name="login" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <label class="col-lg-3 col-form-label">รหัสผ่าน : </label>
                             <div class="col-lg-9">
-                                <input type="password" name="pwd" class="form-control" required>
+                                <input type="password" name="pwd" id="pwd" class="form-control" required>
+                            </div>
+                        <div class="row mt-3">
+                            <label class="col-lg-3 col-form-label">ใส่รหัสผ่านซ้ำ : </label>
+                            <div class="col-lg-9">
+                                <input type="password" name="pwd2" class="form-control" id="pwd2" onblur="OnBlurPwd()" required>
                             </div>
                         </div>
                         <div class="row mt-3">

@@ -33,7 +33,26 @@ session_start();
                 echo "<div class='card-body'>$row[content]<br><br>$row[3]-$row[2]</div>";
             echo "</div>";
             }
+
+            $sql="SELECT comment.content, comment.post_date, user.login
+            FROM comment INNER JOIN user ON
+            (comment.user_id=user.id) WHERE comment.post_id=$_GET[id]";
+            $result=$conn->query($sql);
+            $i=1;
+            while($row=$result->fetch())
+            {
+                echo "<div class='card border-info mt-3'>";
+                echo "<div class='card-header bg-info text-white'>ความคิดเห็นที่ $i</div>";
+                echo "<div class='card-body'>$row[content]<br><br>$row[2]-$row[1]</div>";
+                echo "</div><br>";
+                $i=$i+1;
+            }
+            $conn = null;
             ?>
+            <?php
+            if(isset($_SESSION['id'])){
+            ?>
+
             <div class="card border-success mt-3">
                 <div class="card-header bg-success text-white">
                     แสดงความคิดเห็น
@@ -59,6 +78,7 @@ session_start();
                     </div>
                 </form>
             </div>
+            <?php }?>
         </div>
         <br>
     </div>

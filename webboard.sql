@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2024 at 05:42 AM
+-- Generation Time: Mar 15, 2024 at 03:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,15 @@ CREATE TABLE `category` (
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'เรื่องเรียน'),
+(2, 'เรื่องกีฬา'),
+(3, 'เรื่องทั่วไป');
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +54,16 @@ CREATE TABLE `comment` (
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUES
+(1, 'แฮรี่พอตเตอร์', '2024-03-08 10:52:18', 2, 3),
+(2, 'แฮรี่พอตเตอร์', '2024-03-08 10:52:43', 2, 3),
+(3, 'สวัสดีปีใหม่', '2024-03-08 10:53:31', 2, 3),
+(4, 'ไม่ทันเลย', '2024-03-15 09:56:21', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -61,6 +80,15 @@ CREATE TABLE `post` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
+(1, 'อะไร', 'งงอะ', '2024-03-01 11:33:54', 1, 2),
+(2, 'บาส', 'เปิดศอก', '2024-03-01 11:51:29', 2, 2),
+(3, 'การเรียน PHP', 'การเชื่อมต่อ PHP', '2024-03-01 12:03:17', 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +104,16 @@ CREATE TABLE `user` (
   `email` varchar(32) NOT NULL,
   `role` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
+(1, 'พีพี', '7c4a8d09ca3762af61e59520943dc26494f8941b', '123456', 'm', 'thanapon10187za@gmail.com', 'm'),
+(2, 'kk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'พี พี', 'm', 'thanapon10187za@gmail.com', 'a'),
+(3, 'jj', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'เจ เจ', 'm', 's6603052413167@kmutnb.ac.th', 'm'),
+(4, '่yy', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'tt', 'm', 'thanapon10187zaza@gmail.com', 'm');
 
 --
 -- Indexes for dumped tables
@@ -113,25 +151,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
